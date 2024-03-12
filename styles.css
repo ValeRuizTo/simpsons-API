@@ -1,22 +1,73 @@
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .character-box {
-    border: 2px solid #e99a9a;
-    border-radius: 10px;
-    margin: 10px;
+@font-face /* Define fuentes personalizadas */
+{
+  font-family: 'Simpsons';
+  src: url('./Letra/simpsonfont/Simpsonfont.ttf') format('truetype'); 
+}
+
+body {
+    margin: 10px; /* Reducir el margen general */
+}
+.texto-simpsons h1 {
+    font-weight: bold; /* Peso de fuente */
+    font-family: Simpsons;
+    color: #FFE100; /* Color de relleno amarillo */
+    -webkit-text-stroke-width: 1px; /* Ancho del borde */
+    -webkit-text-stroke-color: black; /* Color del borde */
+    font-size: 100px; /* Tamaño de fuente aumentado */
+    text-align: center; /* Centrar texto */
     padding: 20px;
-    width: 300px;
-    text-align: center;
+      }
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    column-gap: 30px; /* Espacio entre las cajas */
+    row-gap: 10px; /* Reducir el espacio entre las filas */
+    padding: 10px; /* Reducir el relleno */
+}
+.character-box {
+    border: 2px solid #98FB98;
+    border-radius: 10px;
+    padding: 10px; /* Reducir el relleno */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar elementos dentro de cada caja */
+    justify-content: center; /* Centrar elementos verticalmente */
+    height: 100%; /* Asegurar que el elemento se extienda verticalmente */
+}
+
+.character-box img {
+    width: 80px; /* Reducir el tamaño de la imagen */
+    height: auto;
+    margin-bottom: 5px; /* Reducir el margen inferior */
+}
+#load-more {
+    display: block;
+    margin: 32px auto 16px; /* Añadir margen superior */
+    padding: 12px 24px; /* Aumentar relleno */
+
+    background-color: #16a085; /* Amarillo pastel */
+    color: #FFE100; /* Azul claro */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor al pasar */
+    font-size: 16px; /* Aumentar tamaño de la fuente */
+
+    &:hover {
+        opacity: 0.7; /* Reducción de la opacidad al pasar el cursor */
+    }
+}
+
+
+#character-input {
+    padding: 8px;
+    margin-right: 10px;
   }
   
-  .character-box img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+  #search-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
   }
-  
