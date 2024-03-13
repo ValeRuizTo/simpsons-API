@@ -77,11 +77,12 @@ body {
 
 .search-section {
     margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem 17rem;
-   
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+
+
     input {
         padding: 7px;
         margin-right: 10px;
