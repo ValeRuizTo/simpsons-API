@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     let currentCharacter = '';
     let shownQuotes = []; // Array para almacenar las citas ya mostradas
     loadNew.style.display = 'none';
+    
     async function fetchQuotes(count) {
         try {
             BackButton.style.display = 'none';
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     // Event listener para cargar más personajes al oprimir el botón
     loadMoreButton.addEventListener('click', async function() {
-        await fetchQuotes(6); // Cargar 6 personajes adicionales
+        await fetchQuotes(6); 
     });
 
     // Event listener para cargar citas por personaje al hacer clic en el botón de búsqueda
