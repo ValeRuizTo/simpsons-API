@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     BackButton.addEventListener('click', function() {
         loadNew.style.display = 'none'; 
         container.innerHTML = ''; // Limpiar citas anteriores
-        shownQuotes = [];
+        shownQuotes = []
         isFirstLoad = true;
         fetchQuotes(6);
 
