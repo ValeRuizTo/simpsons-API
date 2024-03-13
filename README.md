@@ -3,6 +3,10 @@
 ## Introducción al Asíncronismo
 
 
+## Valentina Ruiz 
+- link: https://dsaw-2024-1.github.io/intro-to-asyncronism-ValeRuizTo/
+
+
 ## Funcionalidades
 
 - Crear una aplicación web que se comunique con la API propuesta: https://thesimpsonsquoteapi.glitch.me/
