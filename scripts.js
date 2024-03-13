@@ -14,18 +14,16 @@ document.addEventListener("DOMContentLoaded", async function() {
     
     let isFirstLoad = true;
     let currentCharacter = '';
-    let allQuotes = []; // Array para almacenar todas las citas disponibles para el personaje
     let shownQuotes = []; // Array para almacenar las citas ya mostradas
-    
-
     loadNew.style.display = 'none';
+
     async function fetchQuotes(count) {
         try {
             BackButton.style.display = 'none';
             loadMoreButton.style.display = 'none'; 
             if (isFirstLoad) {
                 spinner.style.display = 'block'; // Mostrar el spinner solo en la primera carga
-                isFirstLoad = false; // Cambiar la bandera después de la primera carga
+                isFirstLoad = false; 
             }
             const response = await fetch(`https://thesimpsonsquoteapi.glitch.me/quotes?count=${count}`);
             const data = await response.json();
@@ -100,7 +98,6 @@ document.addEventListener("DOMContentLoaded", async function() {
                 const response = await fetch(`https://thesimpsonsquoteapi.glitch.me/quotes?count=${quotes}&character=${character2}`);
                 const data = await response.json();
                 container.innerHTML = ''; // Limpiar citas anteriores
-                allQuotes = data; // Almacenar todas las citas disponibles
                 shownQuotes = []; // Reiniciar el array de citas mostradas
 
                 data.forEach(quoteData => {
@@ -114,7 +111,6 @@ document.addEventListener("DOMContentLoaded", async function() {
                     `;
                     container.appendChild(div);
                     shownQuotes.push(quote); // Agregar cita al array de citas mostradas
-                    console.log(shownQuotes);
                 });
                 // Mostrar el botón loadNew solo después de cargar las citas iniciales
                 loadNew.style.display = 'inline-block'; 
@@ -130,10 +126,10 @@ document.addEventListener("DOMContentLoaded", async function() {
         
     loadNew.addEventListener('click', async () => {
         if (currentCharacter) {
+            
             try {
                 const response = await fetch(`https://thesimpsonsquoteapi.glitch.me/quotes?count=15&character=${currentCharacter}`);
                 const data = await response.json();
-                console.log(data);
                 data.forEach(quoteData => {
                     const { quote } = quoteData;
                     if (!shownQuotes.includes(quote)) {
@@ -161,6 +157,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     BackButton.addEventListener('click', function() {
         loadNew.style.display = 'none'; 
         container.innerHTML = ''; // Limpiar citas anteriores
+        shownQuotes = [];
         isFirstLoad = true;
         fetchQuotes(6);
 

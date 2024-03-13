@@ -8,11 +8,13 @@ body {
     background-color: #9bd6f3;
     margin: 10px; 
 }
+
 @keyframes moveCloud {
-    0% { transform: translateX(-40px); opacity: 0.8; }
-    50% { transform: translateX(40px); opacity: 1; }
-    100% { transform: translateX(0); opacity: 1; }
-  }
+    0% { transform: translateX(-40px) translateZ(0); opacity: 0.8; }
+    50% { transform: translateX(30px) translateZ(0); opacity: 1; }
+    100% { transform: translateX(-40px) translateZ(0); opacity: 0.8; }
+}
+
   
  
 .texto-simpsons{
@@ -32,7 +34,7 @@ body {
         margin-top: 3rem;
     }
     img{
-        animation: moveCloud 10s ease-in-out forwards; 
+        animation: moveCloud 10s ease-in-out infinite; 
 
     }
     }
@@ -82,7 +84,6 @@ body {
     justify-content: space-around;
     
 
-
     input {
         padding: 7px;
         margin-right: 10px;
@@ -107,10 +108,6 @@ body {
     position: absolute;
     left: 44%;
     top: 60%;
-    
-  }
-  
-  #html-spinner{
     -webkit-transition-property: -webkit-transform;
     -webkit-transition-duration: 2.5s;
     -webkit-animation-name: rotate;
