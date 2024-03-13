@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     // Event listener para cargar más personajes al oprimir el botón
     loadMoreButton.addEventListener('click', async function() {
-        await fetchQuotes(6); 
+        await fetchQuotes(12); 
     });
 
     // Event listener para cargar citas por personaje al hacer clic en el botón de búsqueda
