@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 });
                 // Mostrar el botón loadNew solo después de cargar las citas iniciales
                 loadNew.style.display = 'inline-block'; 
-                BackButton.style.display = 'none'; // Ocultar el botón extra
+                BackButton.style.display = 'inline-block'; // Ocultar el botón extra
 
             } catch (error) {
                 console.error('Error al obtener los datos:', error);
