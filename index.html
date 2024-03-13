@@ -3,23 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  <title>Pagina Simpsons</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div class="texto-simpsons">
+        <img src="./assets/Images/nube.png" alt="nube">
         <h1>Los Simpsons</h1>
+        <img src="./assets/Images/nube.png" alt="nube">
     </div>
-    
-    <div class="search-container">
-        <input type="text" id="character-input" placeholder="Buscar por personaje...">
-        <button id="search-button">Buscar</button>
+   
+    <div class="search-section">
+        <div>
+            <label for="character-input">Una cita por personaje:</label>
+            <input type="text" id="character-input" placeholder="Nombre personaje">
+            <button id="search-button">Buscar</button>
+        </div>
+        <div>
+            <label for="character">Personaje:</label>
+            <input type="text" id="character" placeholder="Nombre del personaje">
+            <label for="quote-count-input">Número de citas:</label>
+            <input type="number" id="quote-count-input" placeholder="Número de citas">
+            <button id="quote-button">Buscar</button>
+        </div>
+        
     </div>
+   
     
     <div class="container" id="quote-container"></div>
-    <button id="load-more">Cargar Más</button> <!-- Botón para cargar más personajes -->
+    <div class="segundo">
+        <button id="load-more">Cargar Más</button> <!-- Botón para cargar más personajes -->
+        <button id="back-button" >Volver</button>
+        <button id="load-new">Cargar todas</button> 
+    </div>
 
+    <div id="html-spinner" style="display: none;"><img src="./assets/Images/spinner.png" alt="Spinner"></div>
+
+
+    
 
 
    <!-- No elimine este tag -->
