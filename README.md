@@ -3,6 +3,10 @@
 ## Introducción al Asíncronismo
 
 
+## Valentina Ruiz 
+- link: https://thesimpsonsquoteapi.glitch.me/
+
+
 ## Funcionalidades
 
 - Crear una aplicación web que se comunique con la API propuesta: https://thesimpsonsquoteapi.glitch.me/
