@@ -16,18 +16,22 @@ document.addEventListener("DOMContentLoaded", async function() {
     let currentCharacter = '';
     let shownQuotes = []; // Array para almacenar las citas ya mostradas
     loadNew.style.display = 'none';
-
     async function fetchQuotes(count) {
         try {
             BackButton.style.display = 'none';
             loadMoreButton.style.display = 'none'; 
             if (isFirstLoad) {
-                spinner.style.display = 'block'; // Mostrar el spinner solo en la primera carga
+                spinner.style.display = 'block';
                 isFirstLoad = false; 
             }
             const response = await fetch(`https://thesimpsonsquoteapi.glitch.me/quotes?count=${count}`);
             const data = await response.json();
-            data.forEach(quoteData => {
+            
+            // Filtrar las citas ya mostradas
+            const newQuotes = data.filter(quoteData => !shownQuotes.includes(quoteData.quote));
+            
+            // Agregar las nuevas citas al contenedor
+            newQuotes.forEach(quoteData => {
                 const { quote, character, image } = quoteData;
                 const div = document.createElement('div');
                 div.classList.add('character-box');
@@ -37,16 +41,19 @@ document.addEventListener("DOMContentLoaded", async function() {
                     <p>${quote}</p>
                 `;
                 container.appendChild(div);
+                
+                // Agregar la cita al array de citas mostradas
+                shownQuotes.push(quote);
             });
         } catch (error) {
             console.error('Error al obtener los datos:', error);
         }
         finally {
-            spinner.style.display = 'none'; // Ocultar el spinner una vez cargados los datos
+            spinner.style.display = 'none';
             loadMoreButton.style.display = 'inline-block'; 
-
         }
     }
+    
     
     // Cargar 6 personajes al inicio
     await fetchQuotes(6);
