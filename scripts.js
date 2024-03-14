@@ -93,21 +93,24 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     });
         
-    // Event listener para cargar citas por personaje y número de citas
-    quoteButton.addEventListener('click', async () => {
-        const character2 = characterInput2.value.trim();
-        const quotes = quoteInput.value.trim();
-        loadNew.style.display = 'none'; // Ocultar el botón loadNew al buscar nuevas citas
-        loadMoreButton.style.display = 'none'; 
+   quoteButton.addEventListener('click', async () => {
+    const character2 = characterInput2.value.trim();
+    const quotes = parseInt(quoteInput.value.trim(), 10); // Convertir a número la cantidad de citas que el usuario desea obtener
+    loadNew.style.display = 'none'; // Ocultar el botón loadNew al buscar nuevas citas
+    loadMoreButton.style.display = 'none'; 
 
-        if (character2 && quotes) {
-            currentCharacter = character2;
-            try {
-                const response = await fetch(`https://thesimpsonsquoteapi.glitch.me/quotes?count=${quotes}&character=${character2}`);
-                const data = await response.json();
-                container.innerHTML = ''; // Limpiar citas anteriores
-                shownQuotes = []; // Reiniciar el array de citas mostradas
+    if (character2 && quotes) {
+        currentCharacter = character2;
+        try {
+            const response = await fetch(`https://thesimpsonsquoteapi.glitch.me/quotes?count=${quotes}&character=${character2}`);
+            const data = await response.json();
+            container.innerHTML = ''; // Limpiar citas anteriores
+            shownQuotes = []; // Reiniciar el array de citas mostradas
 
+            if (data.length < quotes) { // Verificar si hay suficientes citas
+                alert(`Lo siento, solo hay ${data.length} citas de ${character2}.`);
+            } 
+            
                 data.forEach(quoteData => {
                     const { quote, character, image } = quoteData;
                     const div = document.createElement('div');
@@ -120,17 +123,23 @@ document.addEventListener("DOMContentLoaded", async function() {
                     container.appendChild(div);
                     shownQuotes.push(quote); // Agregar cita al array de citas mostradas
                 });
+                if (data.length < quotes) { // Verificar si hay suficientes citas
+                    loadNew.style.display = 'none'; 
+                } 
+                else{
                 // Mostrar el botón loadNew solo después de cargar las citas iniciales
                 loadNew.style.display = 'inline-block'; 
-                BackButton.style.display = 'inline-block'; // Ocultar el botón extra
+                }
+                BackButton.style.display = 'inline-block'; 
 
-            } catch (error) {
-                console.error('Error al obtener los datos:', error);
-            }
-            characterInput2.value = ''; // Limpiar el campo de texto después de buscar
-            quoteInput.value = ''; // Limpiar el campo de texto después de buscar
+            
+        } catch (error) {
+            console.error('Error al obtener los datos:', error);
         }
-    });
+        characterInput2.value = ''; // Limpiar el campo de texto después de buscar
+        quoteInput.value = ''; // Limpiar el campo de texto después de buscar
+    }
+});
         
     loadNew.addEventListener('click', async () => {
         if (currentCharacter) {
@@ -172,3 +181,4 @@ document.addEventListener("DOMContentLoaded", async function() {
         
     });
 });
+//mensaje diciendo que no hay mas y mensaje diciendo que el personaje no existe

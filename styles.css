@@ -3,9 +3,17 @@
   font-family: 'Simpsons';
   src: url('./assets/simpsonfont/Simpsonfont.ttf') format('truetype'); 
 }
+@font-face /*define fuentes personalizadas */
+{
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-Bold.ttf format')('truetype'); 
+}  
+
 
 body {
     background-color: #9bd6f3;
+    font-family: Roboto;
+    font-weight: 400;
     margin: 10px; 
 }
 
@@ -85,6 +93,8 @@ body {
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:medium;
     
 
     input {
