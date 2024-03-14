@@ -179,4 +179,4 @@ document.addEventListener("DOMContentLoaded", async function() {
         
     });
 });
-// mensaje diciendo que el personaje no existe, verificaciones de numeros negativos
+    

@@ -89,7 +89,7 @@ body {
 
 
 .search-section {
-    margin :2rem 10rem;
+    margin :1rem 4rem;
     display:flex;
     flex-direction: row;
     justify-content: space-around;
