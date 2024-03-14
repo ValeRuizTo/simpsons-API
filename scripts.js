@@ -106,9 +106,12 @@ document.addEventListener("DOMContentLoaded", async function() {
             const data = await response.json();
             container.innerHTML = ''; // Limpiar citas anteriores
             shownQuotes = []; // Reiniciar el array de citas mostradas
+            loadNew.style.display = 'inline-block'; 
+
 
             if (data.length < quotes) { // Verificar si hay suficientes citas
                 alert(`Lo siento, solo hay ${data.length} citas de ${character2}.`);
+                loadNew.style.display = 'none'; 
             } 
             
                 data.forEach(quoteData => {
@@ -123,13 +126,8 @@ document.addEventListener("DOMContentLoaded", async function() {
                     container.appendChild(div);
                     shownQuotes.push(quote); // Agregar cita al array de citas mostradas
                 });
-                if (data.length < quotes) { // Verificar si hay suficientes citas
-                    loadNew.style.display = 'none'; 
-                } 
-                else{
-                // Mostrar el botón loadNew solo después de cargar las citas iniciales
-                loadNew.style.display = 'inline-block'; 
-                }
+                
+               
                 BackButton.style.display = 'inline-block'; 
 
             
@@ -181,4 +179,4 @@ document.addEventListener("DOMContentLoaded", async function() {
         
     });
 });
-//mensaje diciendo que no hay mas y mensaje diciendo que el personaje no existe
+// mensaje diciendo que el personaje no existe, verificaciones de numeros negativos
