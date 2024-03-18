@@ -88,6 +88,8 @@ document.addEventListener("DOMContentLoaded", async function() {
 
             } catch (error) {
                 console.error('Error al obtener los datos:', error);
+                alert(`Por favor ingrese un personaje valido, recuerda que el nombre de los personajes es en ingles`);
+
             }
             characterInput.value = ''; // Limpiar el campo de texto después de buscar
         }
@@ -133,6 +135,8 @@ document.addEventListener("DOMContentLoaded", async function() {
             
         } catch (error) {
             console.error('Error al obtener los datos:', error);
+            alert(`Por favor ingrese un numero o personaje valido, recuerda que el nombre de los personajes es en ingles y no se pueden poner numeros negativos`);
+
         }
         characterInput2.value = ''; // Limpiar el campo de texto después de buscar
         quoteInput.value = ''; // Limpiar el campo de texto después de buscar
